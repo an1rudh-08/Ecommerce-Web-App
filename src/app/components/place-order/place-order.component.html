@@ -1,0 +1,58 @@
+
+	
+    <div class="small-container cart" >
+        <table>
+            <tr>
+                <th>Product</th>
+                <!-- <th>Quantity</th> -->
+                <th>Subtotal</th>
+            </tr>
+            
+            <tr *ngFor="let item of cart">
+                <td>
+                    <div class="cart-info">
+                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqLzKgU-cH794GjyUszNHzvlV0cHeGaIxYoiVih4FTe1azm1nD6-WwT145TP8&usqp=CAc" alt="iphone 11" >
+                        
+                        <div>
+                            <p> {{item.name}} </p>
+                            <strong><small>{{item.price | currency:'INR'}}</small></strong><br>
+                            <!-- <a href="">Remove</a> -->
+                        </div>
+                    </div>
+                </td>
+                <!-- <td><input type="number" value="{{item.quantity}}" min="0"></td> -->
+               
+                <td>{{item.price | currency:'INR'}}</td>
+            </tr>
+            
+            
+        </table>
+    
+    <div class="total-price">
+        <table>
+            <tr>
+                <td>
+                    Total Amount To Be Paid: 
+                </td>
+                <td>
+                   <strong> {{value | currency:'INR'}} </strong>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit" class="btn btn-primary" (click)="placeOrder()" > Place Order </button>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    {{errorMsg}}    
+                </td>
+            </tr>
+        </table>
+    
+    
+    </div>
+    
+   

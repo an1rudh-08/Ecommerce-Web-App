@@ -1,0 +1,63 @@
+<app-header></app-header>
+
+<form class="container"  >
+    <div class="form-group">
+        <label>Id:</label>
+        <input type="number" [(ngModel)]="product.id" ngModel class="form-control" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-group">
+       <label>Name:</label>
+    <input type="text" class="form-control" [(ngModel)]="product.name" [ngModelOptions]="{standalone: true}"> 
+   </div>
+   <div class="form-group">
+    <label>Description:</label>
+    <input type="text" class="form-control" [(ngModel)]="product.description" [ngModelOptions]="{standalone: true}"> 
+   </div>
+   <div class="form-group">
+    <label>Quantity:</label>
+    <input type="number" class="form-control" [(ngModel)]="product.quantity" [ngModelOptions]="{standalone: true}"> 
+    </div>
+    
+    <div class="form-group">
+        <label>Price</label>
+        <input type="number" class="form-control" [(ngModel)]="product.price" [ngModelOptions]="{standalone: true}"> 
+    </div>
+    <button class="btn-primary btn form-control" (click)="createProduct()" type="submit" >Add</button>
+</form>
+
+<hr>
+
+
+
+<!-- <app-header></app-header>
+
+<form class="container"  >
+    <div class="form-group">
+        <label>Id:</label>
+        <input type="number" [(ngModel)]="product.id" ngModel class="form-control"  >
+    </div>
+    <div class="form-group">
+       <label>Name:</label>
+    <input type="text" class="form-control" [(ngModel)]="product.name" > 
+   </div>
+   <div class="form-group">
+    <label>Description:</label>
+    <input type="text" class="form-control" [(ngModel)]="product.description" > 
+   </div>
+   <div class="form-group">
+    <label>Quantity:</label>
+    <input type="number" class="form-control" [(ngModel)]="product.quantity" > 
+    </div>
+    
+    <div class="form-group">
+        <label>Price</label>
+        <input type="number" class="form-control" [(ngModel)]="product.price" > 
+    </div>
+    <button class="btn-primary btn form-control" (click)="createProduct()" type="submit" >Add</button>
+</form>
+--[ngModelOptions]="{standalone: true}"
+[ngModelOptions]="{standalone: true}"
+[ngModelOptions]="{standalone: true}"
+[ngModelOptions]="{standalone: true}"
+
+<hr> -->

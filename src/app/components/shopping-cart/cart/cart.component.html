@@ -1,0 +1,9 @@
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let product of products" >
+        <div class="cart-items">
+            <span>Item 1</span> * <span> 4 </span> : <strong> {{ 500 | currency:'INR'}} </strong>
+        </div>
+        
+        <app-cart-items></app-cart-items>
+    </li>
+</ul>

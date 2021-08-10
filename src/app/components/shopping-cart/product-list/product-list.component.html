@@ -1,0 +1,66 @@
+<app-header></app-header>
+<img src="https://www.atimi.com/wp-content/uploads/2018/04/img-4-1024x683.jpg" width="100%" height="500px">
+<div class="jumbotron" style="background-color: white;height: 100%;">
+    <!-- <h1>Navin Online Shopping</h1>
+    <p class="lead">Come..Buy...Go</p> -->
+    <hr>
+
+  <div class="card-group">
+
+
+    <div class="row container">
+      <div class="col-md-4" *ngFor="let product of products">
+        <div class="card" style="width: 18rem;" >
+          <img class="card-img-top" src="https://fdn.gsmarena.com/imgroot/news/20/09/top-10-us-smartphones-first-week-september/-1200w2/gsmarena_000.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">{{product.description}}</p>
+            <div *ngIf="product.cart==false">
+              <button class="btn btn-primary" (click)="addToCart(product.id)">Add To Cart</button>
+            </div>
+            <div *ngIf="product.cart==true">
+              <button class="btn btn-primary" (click)="addToCart(product.id)">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    
+      <!-- <div class="card" *ngFor="let product of products">
+        <img class="card-img-top" src="https://fdn.gsmarena.com/imgroot/news/20/09/top-10-us-smartphones-first-week-september/-1200w2/gsmarena_000.jpg" alt="Card image">
+        <div class="card-body">
+          <h4 class="card-title">{{product.Name}}</h4>
+          <p class="card-text">{{product.description}}</p>
+          <p class="card-text"><small class="text-muted">Last Updated 3 mins ago</small> </p>
+          <div *ngIf="product.cart==true">
+            <button class="btn btn-primary" (click)="addToCart(product.id)">Remove </button>
+          </div>
+          <div *ngIf="product.cart==false">
+            <button class="btn btn-primary" (click)="addToCart(product.id)">Add To Cart </button>
+          </div>
+        </div>
+      </div>
+    
+   -->
+        <!-- <div class="card">
+            <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS1kR8r6lSx9AG7JrcwFvDhRcJBLlWORP6SQ&usqp=CAU" alt="Card image">
+            <div class="card-body">
+            <h4 class="card-title">Samsung</h4>
+            <p class="card-text">We have all he models and various stuffs</p>
+            <p class="card-text"><small class="text-muted">Last Updated 3 mins ago</small> </p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBERERIREREREhESERERERAREREREhERGBQZGRgYGBgcIS4lHB4rHxgYJjomKy8xNTU1GiQ7QDs0Py40NTEBDAwMDw8QHxERGDQdISE9Pz80NTE0MTE0NDQ2NDQ0MTE0MTQ9NDExNDUxNDQ1MTQxNDQ0MTUxMTQxNDQxMTQ0NP/AABEIAKgBLAMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAAAwQFBgcCAQj/xABGEAACAQIBBQsKAwYFBQAAAAABAgADEQQFBhIhMQcTIkFRcXJzobGzMjM1YYGRkrLB0TRSYhQjQlOCwiRDg5OiFWPh8PH/xAAZAQEBAQEBAQAAAAAAAAAAAAAAAgEDBQT/xAAjEQEBAAICAgIDAAMAAAAAAAAAAQIDMTIRcRKBBEFREyFh/9oADAMBAAIRAxEAPwDUoQhAJxUdUUsxCqBcsTYATuVzOolzSpE8BmTSHKWcAX/pVx/VfiErDH5WROeXxx8xM0cfTcXQu68TrTdlPMQNfsin7UnG4X1PdD7mtGuOxVPDUzUqMKdOmus22C3EBInJGdeExbmnRqMKltII6OhdeMrfU3Ntl3DF803ZfzysqsDrBBHKNc9kc6Lt0Vvy6Iv755cjYzj+tj2MSJnw/wCtn5U/cSUJGjEuNj36aqfl0Z1/1BhtRW6JKk8wNx2yfhkufkYX9+EhCJYesrorobqwuOI8hBHEQdUVku4hCEAhCMMVljDUhw6qcynS18mrUPbAfwlVxOelLZSQt+puL2DUfike+cNep/Fog8SnRtzEWPvJm/Gs8xdatdE8t1W+zSIBPMOOIJlKgXFPfFFRr6KNdGa23RDAX9kp9Osx2nbttYX57bY8xOTUxeFq02uGVRUpOup6VVGBVkPEdo5iRN+LPK4QkVmxjHxGCw1Z/LqUUL2/OBZu0GSslQhCUvdGy3Vw6UKFFjTOIdjUdSQ60kKgqrDySS41jXYGBcXqoupmVTyFgO+c/tKfnT41+8xqqLVCt7Xudm2wuTq/91xmMdTZii1GLAXtbRJHqvtm+GNx/aaf56fxr94DEU/5ifGv3mGvW5Gb2/8A2Ju55THgbwKqfmX4hPQ45R7xPn93PLEXc8seGvoiExbMXL9Whj6NFnY0K53pqbElA58hlHEQba+S82mYCEIQCEIQCEIQCEIQCVzOPz1HpUPEaWOVvOTztLpUPEaddPeOW7rPcRm6hXZMEbGwapTVvWpZbj3XHtmY5LxLLjMK6twv2rDC97k3qKpN9usFgRyG00jdXP8Agv8AVpfOsyrJotjMMAb2xOGOsaNwaqkEeqZk56ut9voJzEmM7c90Sczq+KuGMRZp25iTGEU+zfP7pxyVqgHvB+slJE5veafr6n0ktOGfavW1dZ6Ejc4cpHCYWpWADMq8AHYXOy/q4/ZJKVfdFa2Tqp5CD2GZF1nmLzsrYl97auzOb8BQdG4FyBxAgA7OSMN8ZjdiWPKxJPbK5kGuExGFdQQy1U0iTfSJex7DaWnG40Vd5AUrvWHp0Te3CZSxJHq4UpNOcM0lcM0hcM0l8M01iXoNLBks8Cp1Z7xK5hzLFko8Cp1Z7xAXzL9HYboP87SckHmX6Ow3QfxHk5IqxM+3WKH7vDVfymtT9pCOPkM0GVLdKoaeA0v5dam3xBk/vEwULEEm5Fv3lBgL8rBR3XlX3ioayXQpoMWZjojVr1avKveWLDvenQb9BU+s6LKB7yJTcZWK1GYaS1Q+oDn8kjj/APHr1UxbsXlFXw1OhvNNXpsx39dVR1JJsw49o1+oRqxi9BsIcLX301FxYKnD6OkUYWF1Oq229721WtxxmjXReYdmqB48QcxZzG7wEkrGnVpVBtp1EYc4M+kEcMoYbGAYcxFxPmrFeSfVrn0Bmpit9wGEe970EUn1oNA9qzK1LwhCYCEIQCEIQCEIQCVvOTztLpUPEaWSVvOXztLpUPEaddPeOW3rPaD3WTbA/wCrT+ZZkORa98ZhV4v2ugeY76t7e6bFupYZqmAqaIvoFXYfpUgtb2AzHsghnx2FAGkxxVDYNQtUU8G3FYH2CZlyjT1vt9DuYkxnbkcRvq5La+SIuZ0l8/7fDlPF8OHMSYztjEWMpFSWbnmn66p9JLyIzb8y/XVPpJecM+1etq6Y+hKtukejavs7jLTKruk+javOO4yZyqsFyYoFSgdIEmohIF+Dw7WPr1X9olgRtcrOTQRVpHlqU7fGJY0OuVGVJ4ZtklsM0hcM0l8M01iYw5lkyQeBU6s94lXw7Sy5GPAqdW3eIDzMv0dhug/iPJyQeZfo7DdB/EeTkirEhM8qQfJ+KB/hp75/tsH/ALZNxtlHD77QrUrX3ylUp25dNCv1mDFMG1qAv/l1STzBg0jcp4mnTqBWp6T21vbWg0tHbt2x7k1w9OqOJtCoAeRljLFYd3a7qrkG6vcBv6gfvr5JTDDHYsJYaFyb7CdVhr448wb3pjnP3+sRrYBn8oA8evROv3xxSpaC2vfWST64A0QcxVzEWMBCrrB5pse5Ri98yYicdKpUp+zU3exmONNH3GcVwcZRJ2NTdR8QbvWZRp8IQmNEIQgEIQgEIQgErWc3naXSoeI0ssrOcx/fUh+qh4jTtp7xy3dZ7iSx9JKgZHUMjCzKdhEgsmZr4HC1DVoUAtTWA5LMVBFjo3Nl1cksGIPCjdjK8Pgts8+HDGJOZ25iTGaik3MSYztzEXMqIqXza8y/XVPpJiQ+bPmX66p9JMT59navX1dMfQlU3S/RtXnHcZa5Vd0j0dU6S9xkzlVYBkmmWrUlUaRNRSFGs6jc9gk8ra42w2EWmd8W4Ygga/JBFjb2EiLI2uVJ4ZaksM0lsM0hcMZLYZprEzh2lnyIeDU6tu8SqYYy05DPBqdW3eIErmsoGCoACwCNYDptJeRWbH4Oh0W+ZpKyKuCAhCYMOelveLxVK1gGrIB6kqso7LRBpKZzpveVqw2Bqht6w9JH7yZF1Np55TCTmIuYo5iLmAi5iLRRzEXMDhpa9yjFb3lNkvqq0XUc68P+2VNpI5oYrecp4OpsBqqh5mNj2EwPoaEISWiEIQCEIQCEIQCVjOfz1LpUPEaWeVnOfztLpUPEadtPeOW7rPcSeJPCjdjFsSeFG7GW8/Lkm5iTGKrrYA7CQD7525QEkItiHFgzG1uM3MJ8eTJzEGMUcxFzLjnU5mx5huuqfSTEhs1vMN11T6SZnzbO1exq6Y+hKpuk+janSXuMtcqe6X6NqdNO4yZyq8McvwROA0L8ERNZ0StuFwmHpMdNK1YBMXT206Y32mgOkAA5CjSvc24jxEFLDGJrlOneoUp1C1Tf7F6qaKNWUI5CKlzqA2txCGGaYJnDtLVkA8Gp1bd6yo4ZpbM3jqqdW3eIExmi+ngMO1rXRtX9bSZkHmX6Ow3QfxHk5Iq4IQhMGU7pVI08oU6nE9Og1/1BnRuwLK9iRZm55cd1uhwcNV4gKyHnujL3NKbiDcg8qg9k1hu5iDmKuYixmhu9QXI16r7FY/SIo+kAbEX4iCJ5WazHyvKVhZXItYA7BzzxCba7+U1rixtfVq5oA0RFQo9NxqKupB5NcVYxtiRwTA+ncPVD00qDZURHHMyg/WKyCzJxW/ZNwlT/ALQT4CU/tk7JaIQhAIQhAIQhAJWM6PO0ulQ8RpZ5V86fOUulQ8Rp20945buv2kcSeFG7GOMT5UbNLedly4LWIPIbzipVvfggXvxsdu3jg5iTmV4R8rOCTmN6hizGNnMqIqw5qfh266p9JNSEzT/Dt11T6Sbny7O1exq6T0JUt0z0bV6a9xltlS3TfRtTpp3GTOV3hi9+DPFOuF+CJwpnRJ9QMlcO0iKBknhmmCZwzS3ZvHVU6tu9ZTMM2yXDNw6qnVt3rAmcy/R2G6D+I8nZB5l+jsN0H8R5OSKuCEITBTd1DD6eBRv5ddSeZkdLe9lmaI+lSpt+gD3TXs+KGnk7Ej8ipV9iVEc9imY5hT+6t+V3XtmxjxzEHMWcxu5mhJzEmnbmJtATaJVNhijRN4Gy7kGK08mmmdtKs68ykAjt0pe5k+4pirPjKBO0JUA5jY/PNYk1ohCEAhCEAhCEAlXzq85S6VDxGlolWzr85S6VDxGnbR3jlu6/cSGJ8qNmjjEnhRsxnR5uXJJok5ijmIuZUc6ScxrUMXqGNKhlRFWbNH8M3XVPpJyQWaH4ZuuqfSTs+Tb2r2tPSehKjunejanTTuaW6VDdP9GVOmnc0mcrvDFr8EThTPb6pwpnRJ7QMk8MZE0TJLDmYJjDNLfmyfOdW3espmGaXHNg+c6s96wLBmX6Ow3QfxHk5IPMv0dhug/iPJyRVwQhCYGeVsNvuGr0v5lCqnxIR9ZguCe4qDlZXHMyz6GE+fatLe8VXpbAhqUwOrqMn0mwJuYg5irmIMZrCLRNp20TYwE2nDTppw0C27lGK3vKipxVaTp7lLDtUTdZ825r4reco4SpewFamG6JYX7Lz6SMytEIQmAhCEAhCEAlWzr85S6VDxWlplWzs85S6VDxWnbR3jlu6/cPsR5UatHOI8r2Rs06vMy5JuY3cxd43czY503qGNahjioY0qGdJEVaczvwp66p9JPSAzN/Cnrqn0k/Pj2969vT0noSobqHo1+mnc0t8p+6j6MqdNO5pE5XeGJ8U4Wek6hOQZ0SdUTJLDmRlIyQoGYJbDmXLNc+c6s/MspOGaXPNY636s/MsCzZl+jsN0H8R5OSDzL9HYboP4jyckVcEIQmAmG54Ut7ytXGwNUf26aJU73M3KY5uqUt7yjTe1g1Og9+Ukuh7EWbBWakbuYvX2mNnM1hNjEmMUaJMYHDTgzppxA4ZtEq3Iyntn0/k/Eb7RpVR/mUqb/EgP1ny/WF1M+hNz7F79kzCNxqhpn+hiB2WmNWSEITAQhCAQhCASq52+cpdKh4rS1Sq53ecp9Kh4rTro7xy3dfs8xG2N2i+I2xu07PLy5JtG9QxdzG1Qyoim1QxnUMc1DGrzpHOrXmb+FPX1PpLBIDMz8K3X1PpJ+fFt717mnpPQlP3UfRlTpp3NLhKdupejanTTuaROV3hiJ2TgGdHZO8LimptpJa9rawTbWD9J0SVoqdWo+4x/TBBsQQdWogg6xcdk5pZZrX2pbbo6J0b2Ava/ItvaZ22Jeo5dzdiFubAXsAPfqmB/hjLpmqdb9WfmWUnDmXPNM636B+ZYFszL9HYboP4jyckHmX6Ow3QfxHk5Iq4IQhMBMu3ZaB/wALUA1aFZSf1I9NlH/J5qMom63hS+BpuP4K9m6LUnHzBJsGXVWvY8oBjZopTbSpo3KoiTTWOGiLRRzE2MDhpzPWnkwctsmx7jOK08DVpE66VckDkV1Fu1TMdM0TcUxejiMXQJ8uktQDoMB/eYGwwhCY0QhCAQhCASqZ3nh0+eh4rS1ypZ9I6JTxAUlEIWoQL6FnVlY/p1OL8rLxTrpsmc8ue3qfV9sbtFEqrURXQhlYAgjXPCh2cfJO/DyrLabPGtSSYwFRtiN7Ro99oouQ3byiq+259wFu2PljOa2aNmXEV2pGziXJM36f8TseYBe+8dU8kYdf8sN0+ED7NnZH+bGLx/DzvNkM80aJTCISLb49Rx0S3BPtAB9sm54J7Plyy+WVv9enhj8cZj/BKdup+janTT5Wlxla3QMnVMTk6tTpqXdbVAii7NYHUBx7b+yZOW3hgZ2TgR4MBVt5B96/ecDJ9X8n/JPvLS4pmP6JiKYGp+UfGn3julhKg26Px0/vAd4cy6Zptwn6s/Msp1Ciw2mmP9Sn95L4SpiKiNhsIpavW0UNVeFToppXZtLYW1WAEDR8yWBybhSNhpsQeUF2Ik9GWR8AuGw1HDr5NKmiD12EeznViEIQCVzP/D75kzED8m9VPYlVC3/G8scbZSwa4ihVoP5NWm9NjyB1K37YHzlhD+7t+VnXtnjRbF4CthKtXD4hCjh76RFlb9SnkO2I2vqFj6gQT7hKYSaJtJXDZAxdXzeGrvfjWk9veQBJbCbnuU6m2gKY5atSmnYCx7IFQMJo+H3J8Sbb5iaCcoQVKhHvC3kzhNyjDL53E1anqp00pjt0jMGPy7bkGGqHKT1FVt7p4d98NjogsQFUnlJubfpM0TCbn+TKdr0GqEcdWpUbsBA7JYsFgqVBAlGnTpUwb6FNFRb8thtPrhpxCEJgIQhAIQhAJ4RfUdYOog7DCEBvTyfRTyKVNQTchVAF+bZF1UDUAAOQACEJttJjJ+nUIQmAhCEAhCEAhCEBF8LTY3anTYnaWRST7SJ5+x0v5VP/AG0+08hA6GFpjZTpjmRPtD9lp/y0/wBtPtCED39mp/kp/Av2naIq+SoHMAO6EIHUIQgEIQgEIQgI4jCUqoAqU6dQDYKiI9ua4hQwtKn5FOnT6FNE7hCEBa8IQgEIQgEIQgEIQgEIQgf/2Q==" alt="Card image">
+            <div class="card-body">
+            <h4 class="card-title">One Plus</h4>
+            <p class="card-text">We have all he models and various stuffs</p>
+            <p class="card-text"><small class="text-muted">Last Updated 3 mins ago</small> </p>
+            </div>
+        </div> -->
+        </div>
+
+</div>

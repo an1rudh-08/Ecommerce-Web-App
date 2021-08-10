@@ -1,0 +1,114 @@
+<!-- <div class="d-flex flex-column flex-md-row align-items-centre p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal">
+      <app-header></app-header>
+    </h5>
+    <div class="d-flex flex-row-reverse">
+        <div class="p-2">Flex item 1</div>
+        <div class="p-2">Flex item 2</div>
+        <div class="p-2">Flex item 3</div>
+      </div>
+    <nav class="my-2 my-md-0 mr-md-3" >
+      <a class="p-2 text-dark " [routerLink]="['/shop']">Shop</a>
+      <a class="btn btn-primary" [routerLink]="['/cart-items']">cart</a>
+      <a class="btn btn-primary" [routerLink]="['/register']">Register</a>
+    </nav>
+   
+   
+  </div>
+  -->
+
+ 
+
+
+
+
+
+
+
+
+<!-- <div class="d-flex flex-column flex-md-row align-items-centre p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal">
+      <app-header></app-header>
+    </h5>
+    <div class="d-flex flex-row-reverse">
+        <div class="p-2">Flex item 1</div>
+        <div class="p-2">Flex item 2</div>
+        <div class="p-2">Flex item 3</div>
+      </div>
+    <nav class="my-2 my-md-0 mr-md-3" >
+      <a class="p-2 text-dark " [routerLink]="['/shop']">Shop</a>
+      <a class="btn btn-primary" [routerLink]="['/cart-items']">cart</a>
+      <a class="btn btn-primary" [routerLink]="['/register']">Register</a>
+    </nav>
+   
+   
+  </div>
+  -->
+<!----
+  <!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      
+      <link rel="stylesheet" href="nav.component.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+   </head>
+   <body>
+      <nav>
+         <ul>
+            <li class="logo">Mobile Shop</li>
+            <li class="btn"><span class="fas fa-bars"></span></li>
+            <div class="items">
+              
+               <li><a [routerLink]="['/home']">Home</a></li>
+               <li><a [routerLink]="['/placeOrder']">Place Order</a></li>
+               <li><a [routerLink]="['/register']">Register</a></li>
+               <li><a [routerLink]="['/inventory']">Inventory</a></li>
+               <li><a [routerLink]="['/add-new-stock']">Add New Stock</a></li>
+               
+            </div>
+            <li class="search-icon">
+               <input type="search" placeholder="Search">
+               <label class="icon">
+               <span class="fas fa-search"></span>
+               </label>
+            </li>
+         </ul>
+      </nav>
+      
+      <script>
+         $('nav ul li.btn span').click(function(){
+           $('nav ul div.items').toggleClass("show");
+           $('nav ul li.btn span').toggleClass("show");
+         });
+      </script>
+   </body>
+</html>
+-->
+
+<ul class="nav justify-content-end bg-dark">
+   <li class="nav-item">
+     <a class="nav-link" routerLink="/home" >Home</a>
+   </li>
+   <li class="nav-item">
+     <a class="nav-link"  routerLink="/placeOrder">Place Order</a>
+   </li>
+   <li class="nav-item">
+     <a class="nav-link"  routerLink="/register">Register</a>
+   </li>
+   <li class="nav-item">
+     <a class="nav-link"  routerLink="/inventory">Inventory</a>
+   </li>
+   <li class="nav-item">
+     <a class="nav-link"  routerLink="/add-new-stock">Add New Stock</a>
+   </li>
+   <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+   
+ </ul>
+ <hr>
